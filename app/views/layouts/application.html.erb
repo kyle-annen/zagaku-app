@@ -16,6 +16,8 @@
     </div>
     <div class="container">
       <div class="row">
+        <%= link_to "Overview", root_path, class: "button u-pull-left" %>
+        <%= link_to "Zagaku Calendar", calendar_path, class: "button u-pull-left" %>
         <% if user_signed_in? %>
           <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "button u-pull-right" %>
         <% else %>

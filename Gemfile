@@ -35,10 +35,14 @@ gem 'jbuilder', '~> 2.5'
 
 # Use devise for user authentication
 gem 'devise'
+# Google calendar api
+gem 'google_calendar'
 # Use oauth for authentication
 gem 'omniauth-google-oauth2'
 # Use skeleton for css framework
 gem 'skeleton-rails', :git => 'https://github.com/helios-technologies/skeleton-rails'
+# Use simple calendar to render calendar
+gem "simple_calendar", "~> 2.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
