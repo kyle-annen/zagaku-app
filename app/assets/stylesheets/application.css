@@ -16,14 +16,3 @@
  *= require skeleton
  */
 
-.notice {
-  text-align: center;
-  width: 100%;
-  background-color: #295cad;
-  color: white;
-  font-family: sans;
-}
-
-.alert {
-  text-align: center;
-}
