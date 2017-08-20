@@ -11,7 +11,12 @@ Devise.setup do |config|
 
 
   # ==> oAuth configuration
-  config.omniauth :google_oauth2, '390664386123-vugr764385c24nl2q8c5fj3njbatvp1u.apps.googleusercontent.com', '7JBis7ny_cNqkKjtkzunOigH', {}
+  config.omniauth :google_oauth2, '390664386123-vugr764385c24nl2q8c5fj3njbatvp1u.apps.googleusercontent.com',
+    '7JBis7ny_cNqkKjtkzunOigH', 
+    { access_type: 'offline',
+      prompt: 'consent',
+      select_account: true,
+      scope: 'userinfo.email,calendar' }
  
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,

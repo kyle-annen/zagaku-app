@@ -1,0 +1,11 @@
+<h1>Zagaku Calendar</h1>
+<%= month_calendar do |date| %>
+  <%= date %>
+<% end %>
+
+<ul>
+  <% @response.items.each do |calendar| %>
+    <li><%= calendar.summary %> (<%= calendar.id %>)</li>
+    <li><%= "Presenter: " + calendar.creator.email %>
+  <% end %>
+</ul>

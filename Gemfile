@@ -35,8 +35,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Use devise for user authentication
 gem 'devise'
-# Google calendar api
-gem 'google_calendar'
+# Google Client API
+gem 'google-api-client', '~> 0.11', require: 'google/apis/calendar_v3'
 # Use oauth for authentication
 gem 'omniauth-google-oauth2'
 # Use skeleton for css framework
