@@ -43,6 +43,8 @@ gem 'omniauth-google-oauth2'
 gem 'skeleton-rails', :git => 'https://github.com/helios-technologies/skeleton-rails'
 # Gem for calendar
 gem "simple_calendar", "~> 2.0"
+# Use figaro for serects and ENV variables
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
