@@ -41,7 +41,7 @@ gem 'google-api-client', '~> 0.11', require: 'google/apis/calendar_v3'
 gem 'omniauth-google-oauth2'
 # Use skeleton for css framework
 gem 'skeleton-rails', :git => 'https://github.com/helios-technologies/skeleton-rails'
-# Use simple calendar to render calendar
+# Gem for calendar
 gem "simple_calendar", "~> 2.0"
 
 group :development, :test do

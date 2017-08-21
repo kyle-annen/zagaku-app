@@ -1,11 +1,18 @@
-<h1>Zagaku Calendar</h1>
-<%= month_calendar do |date| %>
-  <%= date %>
+<%= month_calendar events: @meetings do |date, meetings| %>
+  <%= date.day %>
+
+  <% meetings.each do |meeting| %>
+    <p>
+      <% Time.zone = 'Eastern Time (US & Canada)'%>
+      <%= meeting.start_time.in_time_zone.strftime("%I:%M %p") %>
+    </p>
+      <% meeting_array = meeting.name.split("-") %>
+      <p>
+        <strong><%= meeting_array[1]%></strong>
+      </p>
+      <p>
+        <%= meeting_array[2] %>
+      </p>
+  <% end %>
 <% end %>
 
-<ul>
-  <% @response.items.each do |calendar| %>
-    <li><%= calendar.summary %> (<%= calendar.id %>)</li>
-    <li><%= "Presenter: " + calendar.creator.email %>
-  <% end %>
-</ul>

@@ -1,0 +1,31 @@
+// Place all the styles related to the GoogleCalendar controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.container > .simple-calendar > table {
+  width: 100%;
+}
+
+
+.calendar-heading {
+  text-align: center;
+}
+
+.day, .day > p {
+  font-size: 0.9em;
+  text-align: top;
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+}
+
+
+.simple-calendar > table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.simple-calendar > table > tbody > td {
+  width: 14.28%;
+}

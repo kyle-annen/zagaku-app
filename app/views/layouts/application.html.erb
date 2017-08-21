@@ -17,7 +17,7 @@
     <div class="container">
       <div class="row">
         <%= link_to "Overview", root_path, class: "button u-pull-left" %>
-        <%= link_to "Zagaku Calendar", calendar_path, class: "button u-pull-left" %>
+        <%= link_to "Zagaku Calendar", redirect_path, class: "button u-pull-left" %>
         <% if user_signed_in? %>
           <div class="u-pull-right">
             <span><%= current_user.email %></span>

@@ -6,11 +6,11 @@ class CalendarController < ApplicationController
     def redirect
         def redirect
             client = Signet::OAuth2::Client.new({
-              client_id: @@google_client_id,
-              client_secret: @@google_client_secret, 
-              authorization_uri: 'https://accounts.google.com/o/oauth2/auth',
-              scope: Google::Apis::CalendarV3::AUTH_CALENDAR,
-              redirect_uri: callback_url
+                client_id: @@google_client_id,
+                client_secret: @@google_client_secret, 
+                authorization_uri: 'https://accounts.google.com/o/oauth2/auth',
+                scope: Google::Apis::CalendarV3::AUTH_CALENDAR,
+                redirect_uri: callback_url
             })
         
             redirect_to client.authorization_uri.to_s
@@ -19,11 +19,11 @@ class CalendarController < ApplicationController
 
     def callback
         client = Signet::OAuth2::Client.new({
-        client_id: @@google_client_id,
-        client_secret: @@google_client_secret,
-        token_credential_uri: 'https://accounts.google.com/o/oauth2/token',
-        redirect_uri: callback_url,
-        code: params[:code]
+            client_id: @@google_client_id,
+            client_secret: @@google_client_secret,
+            token_credential_uri: 'https://accounts.google.com/o/oauth2/token',
+            redirect_uri: callback_url,
+            code: params[:code]
         })
     
         response = client.fetch_access_token!
@@ -35,9 +35,9 @@ class CalendarController < ApplicationController
 
     def calendar
         client = Signet::OAuth2::Client.new({
-          client_id: @@google_client_id,
-          client_secret: @@google_client_secret,
-          token_credential_uri: 'https://accounts.google.com/o/oauth2/token'
+            client_id: @@google_client_id,
+            client_secret: @@google_client_secret,
+            token_credential_uri: 'https://accounts.google.com/o/oauth2/token'
         })
     
         client.update!(session[:authorization])
@@ -45,7 +45,7 @@ class CalendarController < ApplicationController
         service = Google::Apis::CalendarV3::CalendarService.new
         service.authorization = client
     
-        calendar_id = '8thlight.com_8qiia2iefs8dkdlnmqg1t7tt9o@group.calendar.google.com'
+        calendar_id = '8thlight.com_2lmksu0derpihviusb1ml7hca4@group.calendar.google.com'
         begin
             @response = service.list_events(calendar_id)
         rescue Google::Apis::AuthorizationError => exception
@@ -53,5 +53,18 @@ class CalendarController < ApplicationController
             session[:authorization] = session[:authorization].merge(response)
             retry
         end
+
+        Meeting.delete_all
+
+        @response.items.each do |meeting|
+            @meeting = Meeting.new
+            @meeting.name = meeting.summary
+            @meeting.start_time = meeting.start.date_time
+            @meeting.save
+        end
+
+        @meetings = Meeting.all
+
+
     end
 end
