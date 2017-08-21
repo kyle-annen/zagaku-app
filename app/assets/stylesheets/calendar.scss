@@ -7,15 +7,26 @@
   color: #355b99;
   font-weight: 900;
   margin-bottom: 0;
+  font-size: 5.5em;
 }
 
 .title-line {
   border-top: 2px solid black;
-  width: 30%;
+  width: 100%;
+}
+
+.sub-title-heading {
+  font-size: 1em;
+  font-weight: 600;
+  color: #687387;
 }
 
 .container > .simple-calendar > table {
   width: 100%;
+}
+
+.calendar-title {
+  font-size: 2em;
 }
 
 
@@ -51,4 +62,10 @@ td > .button {
 
 .simple-calendar > table > tbody > td {
   width: 14.28%;
+}
+
+.quotes {
+  margin: 10px 50px;
+  color: #687387; 
+  font-size: 20px;
 }

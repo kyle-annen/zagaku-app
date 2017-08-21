@@ -9,9 +9,13 @@
 
   <body>
     <div class="container">
-      <h1 class="title-heading">ザガク</h1>
-      <div class="title-line"></div>
-      <p class="sub-title-heading">8th Light Zagaku</p>
+      <div class="row">
+        <div class"five columns">
+          <h1 class="title-heading">座学</h1>
+          <div class="title-line"></div>
+          <p class="sub-title-heading bold">8th Light Zagaku - Teach, Learn, Grow</p>
+        </div>
+      </div>
     </div>
     <div class="container">
       <div class="row">
@@ -23,6 +27,7 @@
       <div class="row">
         <%= link_to "Overview", root_path, class: "button u-pull-left" %>
         <%= link_to "Zagaku Calendar", redirect_path, class: "button u-pull-left" %>
+        <%= link_to "Statistics", root_path, class: "button u-pull-left" %>
         <% if user_signed_in? %>
           <div class="u-pull-right">
             <span><%= current_user.email %></span>

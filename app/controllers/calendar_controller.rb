@@ -4,17 +4,15 @@ class CalendarController < ApplicationController
     @@google_client_secret = 'DBU7o6WCfILiRDnCgRF4l9fI'
 
     def redirect
-        def redirect
-            client = Signet::OAuth2::Client.new({
-                client_id: @@google_client_id,
-                client_secret: @@google_client_secret, 
-                authorization_uri: 'https://accounts.google.com/o/oauth2/auth',
-                scope: Google::Apis::CalendarV3::AUTH_CALENDAR,
-                redirect_uri: callback_url
-            })
-        
-            redirect_to client.authorization_uri.to_s
-        end
+        client = Signet::OAuth2::Client.new({
+            client_id: @@google_client_id,
+            client_secret: @@google_client_secret, 
+            authorization_uri: 'https://accounts.google.com/o/oauth2/auth',
+            scope: Google::Apis::CalendarV3::AUTH_CALENDAR,
+            redirect_uri: callback_url
+        })
+    
+        redirect_to client.authorization_uri.to_s
     end
 
     def callback

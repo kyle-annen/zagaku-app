@@ -1,13 +1,10 @@
 
-
 <%= month_calendar events: @meetings do |date, meetings| %>
   <%= date.day %>
   
   <% if date.wday < 5 && date.wday > 0 && date > Time.now %>
     <%= link_to "Schedule", create_calendar_path, class: "button" %>
   <% end %>
-  
-
 
   <% meetings.each do |meeting| %>
     <p>
