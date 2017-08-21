@@ -64,7 +64,8 @@ class CalendarController < ApplicationController
         end
 
         @meetings = Meeting.all
+    end
 
-
+    def create
     end
 end

@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get '/redirect', to: 'calendar#redirect', as: 'redirect'
   get '/callback', to: 'calendar#callback', as: 'callback'
   get '/calendar', to: 'calendar#calendar', as: 'calendar'
+  get '/calendar/create', to: 'calendar#create', as: 'create_calendar'
 
 end
